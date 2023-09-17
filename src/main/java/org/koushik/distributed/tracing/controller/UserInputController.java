@@ -8,7 +8,6 @@ import org.koushik.distributed.tracing.model.Graph;
 import org.koushik.distributed.tracing.service.GraphService;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -20,15 +19,22 @@ public class UserInputController {
     }
 
     public String initApplication() {
+        // initialize the application with asking user to provide a valid input file path
         return reader.readInputFromConsole(UserMessageEnum.INPUT_PATH);
     }
 
     public void processInput(String userInput) {
+        // validate 1. input file path
+        // 2. if the file exist or not
+        // 3. if the file is .txt file or not
         userInput = reader.validateInput(userInput);
 
         switch (userInput.trim()) {
+            // press 'Q' or 'q' to exit from the application
             case "Q", "q" -> reader.writeMessage(UserMessageEnum.APP_EXIT_MESSAGE.message);
             default -> {
+                // validate and ask user to provide valid file details until getting correct input
+                // or give the option to quit the application
                 while (!userInput.equalsIgnoreCase("q") && !validateInputFilePath(userInput)) {
                     userInput = reader.readInputFromConsole(UserMessageEnum.INVALID_FILE_PATH_MESSAGE);
                 }
@@ -37,6 +43,8 @@ public class UserInputController {
                     reader.writeMessage(UserMessageEnum.APP_EXIT_MESSAGE.message);
                     return;
                 }
+
+                // execute and calculate connection details with reading file line by line
                 readFileAndExecuteGraphService(userInput);
             }
         }
@@ -117,10 +125,8 @@ public class UserInputController {
                 // read next line and execute
                 line = buffReader.readLine();
             }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Exception while try to reading the file from given file path. Exception is - " + e.getMessage());
         }
     }
 }

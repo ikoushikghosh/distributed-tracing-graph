@@ -19,14 +19,18 @@ create input.txt (create a text file for input)
 - touch input.txt for Linux or Mac
 - echo.>input.txt for Windows
 
-open input.txt and write input:
+```
+2) Open input.txt and write input:
+```
 AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7
- 
+```
+3) Package and run the application:
+```
 mvn clean package
 
 java -jar target/distributed-tracing-test.jar
-
 ```
+
 ## Running distributed-tracing with Docker
 1) Set up on the command line
 ```
@@ -38,10 +42,12 @@ create input.txt (create a text file for input)
 - touch input.txt for Linux or Mac
 - echo.>input.txt for Windows
 
-open input.txt and write input:
-AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7
-
 `````
+2) Open input.txt and write input:
+```
+AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7
+```
+
 2) Build Docker Image
 ```
 docker build -t distributed-tracing-test
@@ -56,7 +62,7 @@ docker run -i distributed-tracing-test
 ```
 
 
-## Running with distributed-tracing in your IDE
+## Running with distributed-tracing in your IDE and review code
 
 ### Prerequisites
 The following items should be installed in the system:
@@ -78,18 +84,20 @@ create input.txt (create a text file for input)
 - touch input.txt for Linux or Mac
 - echo.>input.txt for Windows
 
-open input.txt and write input:
-AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7
-
 ```
-2) Inside Eclipse
+2) Open input.txt and write input:
+```
+AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7
+```
+
+3) Inside Eclipse
 ```
 File -> Import -> Maven -> Existing Maven project
 ```
 
 Then either build on the command line `mvn clean install`. Run the application main method by right clicking on it and choosing `Run As -> Java Application`.
 
-3) Inside IntelliJ IDEA
+4) Inside IntelliJ IDEA
 
 In the main menu, choose `File -> Open` and select the `pom.xml`. Click on the `Open` button.
 
