@@ -95,7 +95,7 @@ AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7
 File -> Import -> Maven -> Existing Maven project
 ```
 
-Then either build on the command line `mvn clean install`. Run the application main method by right clicking on it and choosing `Run As -> Java Application`.
+Then build on the command line `mvn clean install`. Run the application main method by right clicking on it and choosing `Run As -> Java Application`.
 
 4) Inside IntelliJ IDEA
 
