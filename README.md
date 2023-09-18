@@ -50,7 +50,7 @@ AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7
 
 2) Build Docker Image
 ```
-docker build -t distributed-tracing-test
+docker build -t distributed-tracing-test .
 ```
 3) Run Docker Image (interactive mode)
 ```
@@ -58,7 +58,7 @@ docker run -i distributed-tracing-test
 ```
 4) Provide the input file path exiting into container
 ```
-/koushik/distributed-tracing-test/input.txt
+input.txt
 ```
 
 
